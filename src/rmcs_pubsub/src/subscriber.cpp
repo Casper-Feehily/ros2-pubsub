@@ -1,0 +1,29 @@
+#include <memory>
+
+#include "rclcpp/rclcpp.hpp"
+#include "std_msgs/msg/string.hpp"
+
+class Subscriber : public rclcpp::Node
+{
+public:
+  Subscriber()
+  : Node("subscriber")
+  {
+    subscription_ = create_subscription<std_msgs::msg::String>(
+      "rmcs_status", 10,
+      [this](std_msgs::msg::String::SharedPtr message) {
+        RCLCPP_INFO(get_logger(), "Received: %s", message->data.c_str());
+      });
+  }
+
+private:
+  rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+};
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<Subscriber>());
+  rclcpp::shutdown();
+  return 0;
+}
