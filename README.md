@@ -23,4 +23,4 @@ ros2 run rmcs_pubsub publisher
 ros2 run rmcs_pubsub subscriber
 ```
 
-订阅者会持续显示 `Received: RMCS ROS 2 is ready: #N`。
+订阅者会持续显示 `Hello World: #N`。

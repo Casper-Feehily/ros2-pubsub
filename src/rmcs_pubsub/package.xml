@@ -3,7 +3,7 @@
   <name>rmcs_pubsub</name>
   <version>0.0.1</version>
   <description>A minimal ROS 2 publisher and subscriber exercise.</description>
-  <maintainer email="casper@example.com">Casper</maintainer>
+  <maintainer email="casperfeehily@outlook.com">Casper</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_python</buildtool_depend>

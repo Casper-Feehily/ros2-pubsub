@@ -13,7 +13,7 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='Casper',
-    maintainer_email='casper@example.com',
+    maintainer_email='casperfeehily@outlook.com',
     description='A minimal ROS 2 publisher and subscriber exercise.',
     license='Apache-2.0',
     entry_points={
