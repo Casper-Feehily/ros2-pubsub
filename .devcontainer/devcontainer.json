@@ -3,10 +3,7 @@
   "image": "qzhhhi/rmcs-develop:latest",
   "workspaceMount": "source=${localWorkspaceFolder},target=/ws,type=bind",
   "workspaceFolder": "/ws",
-  "remoteEnv": {
-    "CMAKE_PREFIX_PATH": "/opt/ros/jazzy",
-    "AMENT_PREFIX_PATH": "/opt/ros/jazzy""forwardPorts": [
-      8765
-    ]
-  }
+  "forwardPorts": [
+    8765
+  ]
 }
