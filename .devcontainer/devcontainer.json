@@ -5,6 +5,8 @@
   "workspaceFolder": "/ws",
   "remoteEnv": {
     "CMAKE_PREFIX_PATH": "/opt/ros/jazzy",
-    "AMENT_PREFIX_PATH": "/opt/ros/jazzy"
+    "AMENT_PREFIX_PATH": "/opt/ros/jazzy""forwardPorts": [
+      8765
+    ]
   }
 }
