@@ -1,7 +1,16 @@
 /build/
 /install/
 /log/
-.devcontainer
+cmake-build-*/
+compile_commands.json
+
+# Local development environment
+.devcontainer/
+.env
+.env.*
+.vscode/
+CMakePresets.json
+CMakeUserPresets.json
 __pycache__/
 *.py[cod]
 

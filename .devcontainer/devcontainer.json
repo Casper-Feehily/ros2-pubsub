@@ -1,9 +1,0 @@
-{
-  "name": "ros2-jazzy",
-  "image": "qzhhhi/rmcs-develop:latest",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/ws,type=bind",
-  "workspaceFolder": "/ws",
-  "runArgs": [
-    "-p", "8765:8765"
-  ]
-}
