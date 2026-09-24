@@ -4,8 +4,8 @@
 #include <random>
 #include <stdexcept>
 
+#include "geometry_msgs/msg/vector3_stamped.hpp"
 #include "rclcpp/rclcpp.hpp"
-#include "std_msgs/msg/float64.hpp"
 
 class SineSignalGenerator : public rclcpp::Node
 {
@@ -23,7 +23,7 @@ public:
 
     angular_frequency_ = 2.0 * 3.14159265358979323846 * signal_frequency;
     noise_ = std::normal_distribution<double>(0.0, amplitude_ * 0.01);
-    publisher_ = create_publisher<std_msgs::msg::Float64>("noisy_sine", 10);
+    publisher_ = create_publisher<geometry_msgs::msg::Vector3Stamped>("noisy_sine", 10);
     start_time_ = get_clock()->now();
     timer_ = create_wall_timer(
       std::chrono::duration<double>(1.0 / publish_rate),
@@ -34,8 +34,9 @@ private:
   void publish_signal()
   {
     const double t = (get_clock()->now() - start_time_).seconds();
-    std_msgs::msg::Float64 message;
-    message.data = amplitude_ * std::sin(angular_frequency_ * t) + noise_(rng_);
+    geometry_msgs::msg::Vector3Stamped message;
+    message.header.stamp = get_clock()->now();
+    message.vector.x = amplitude_ * std::sin(angular_frequency_ * t) + noise_(rng_);
     publisher_->publish(message);
   }
 
@@ -44,7 +45,7 @@ private:
   rclcpp::Time start_time_;
   std::mt19937 rng_;
   std::normal_distribution<double> noise_;
-  rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_;
+  rclcpp::Publisher<geometry_msgs::msg::Vector3Stamped>::SharedPtr publisher_;
   rclcpp::TimerBase::SharedPtr timer_;
 };
 
@@ -54,4 +55,5 @@ int main(int argc, char * argv[])
   rclcpp::spin(std::make_shared<SineSignalGenerator>());
   rclcpp::shutdown();
   return 0;
+
 }
