@@ -8,7 +8,7 @@
 | --- | --- | --- |
 | `rmcs_pubsub` | 发布和订阅 `rmcs_status` 消息 | [发布与订阅](src/rmcs_pubsub/README.md) |
 | `sine_signal_generator` | 生成带噪声的正弦信号，并进行中值与低通滤波 | [信号发生与滤波](src/sine_signal_generator/README.md) |
-| `motor_simulator` | 模拟二阶电机运动，并提供测试力矩源 | [电机模拟器](src/motor_simulator/README.md) |
+| `motor_simulator` | 模拟二阶电机运动，提供速度与角度双环 PID 控制和测试力矩源 | [电机仿真与 PID](src/motor_simulator/README.md) |
 
 ## 开发入口
 
